@@ -1,0 +1,20 @@
+Oque é um Script:
+É um arquivo que contêm uma sequência de comandos ou loops que vai executar oque você quer.
+$ vim PrimeiroScript.sh -> para criar um script
+
+Opções para executar o script:
+$ source PrimeiroScript.sh
+$ . PrimeiroScript.sh
+$ ./PrimeiroScript.sh -> só vai executar se você modificar as permissões (chmod 777)
+$ exec ./PrimeiroScript.sh -> executa o scrip e fecha a seção atual 
+
+para deixar o script no path, edite o arquivo ~/.profile
+parâmetro para add no arquivo:
+PATH="$HOME/Scripts:" -> no diretorio onde está os Scripts criados
+
+Para atualizar o PATH, execute o comando:
+$ echo $PATH -> lista o path atual
+$ PATH=/home/script:resto do conteudo no comando acima. 
+
+para criar um script que possa ser enterpretado por outros shells, precisamos fazer o "she-bang"
+#!/bin/zsh (bash, ksh e etc)

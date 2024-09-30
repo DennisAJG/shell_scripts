@@ -1,0 +1,43 @@
+$ source Script_Variavel.sh -> executa o Script no shell atual (dai não vai precisar exportar a variavel)
+$ . Script_Variavel.sh -> executa o script localmente
+OBS:
+NÃO CONFUDA COM O COMANDO './'
+
+Uso do function:
+Usado para criar uma rotina de comandos dentro do linux
+
+$ function funcao1 {
+    > date;
+    > uptime;
+    > uname -a;
+    > echo "Fim da funcao";
+>}
+$ funcao1 
+$ set -> você consegue visualizar a funcao1 
+
+$ function funcao2 { date; uptime; } -> outra forma de executar a funcao 
+$ funcao3 () {uptime; uname -a; hostname; } -> omitindo o comando function 
+
+OBS:
+O function fica apenas na seção atual. 
+
+Considerações importantes:
+o arquivo /etc/bash.bashrc -> é o arquivo de configuração onde caso abrir uma nova
+                              seção do bash os dados ficam salvos (variaveis)
+testa editando o arquivo e add uma variavel TESTEBASHRC
+e depois faz uma nova seção com um user root ou outro user
+
+Configurações de um user expecifico. 
+ele segue a ordem.
+~/.bash_profile -> é o arquivo de configuração 
+~/.bash_login
+~/.profile 
+Varia de distribuição linux 
+
+Teste editando o .bash_profile criando um alias.
+Lembrando que será apenas aplicado quando se acessar um novo login 
+(reinicar a máquina ou abrir um novo terminal)
+
+.bashrc -> esse sim é o arquivo de configuração para abrir uma nova seção shell
+Teste editando o .bashrc criando um alias. 
+ 
