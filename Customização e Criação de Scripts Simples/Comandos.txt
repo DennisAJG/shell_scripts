@@ -18,3 +18,15 @@ $ PATH=/home/script:resto do conteudo no comando acima.
 
 para criar um script que possa ser enterpretado por outros shells, precisamos fazer o "she-bang"
 #!/bin/zsh (bash, ksh e etc)
+
+
+Utilização de parâmetro:
+Um exemplo dentro do script:
+echo "O meu script se chama $0" #$0 retorna o nome do script
+echo "Esse script recebeu $# parametros que sao, $1 $2"
+
+Executando fora do script, no terminal:
+./PrimeiroScript.sh 10 Dennis 
+O meu script se chama ./PrimeiroScript.sh
+Esse script recebeu 3 parametros que sao, 10 Dennis
+
