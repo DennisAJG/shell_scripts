@@ -30,3 +30,29 @@ Executando fora do script, no terminal:
 O meu script se chama ./PrimeiroScript.sh
 Esse script recebeu 3 parametros que sao, 10 Dennis
 
+
+Conceitos de if e case:
+acesse o /etc/profile para entender melhor o if.
+Exemplo:
+if [ -f /etc/bash.bashrc ]; then 
+  . /etc/bash.bashrc
+fi
+else
+
+
+Conceitos de for, while e until:
+um comando importante e simples no bash:
+$ seq 10 -> faz uma sequencia de numeros
+$ expr 1 + 2 -> faz uma conta aritimetica
+
+while -> raliza a condição enquanto for verdadeira
+until -> raliza a condição ATE que isso seja verdadeira
+
+
+sequencia de comandos que podem ser usados no shellscripts:
+exemplo:
+cat teste | wc -l -> Saida de um comando para entrada de outro 
+date ; ls -l teste ; echo Exemplo -> executa o comando em sequencia (mesmo que o comando der errado)
+ls -l teste && echo Exemplo -> só executa o segundo comando se o primeiro estiver ok 
+ls -l teste || echo Exemplo -> só executa o segundo comando se o primeiro estiver com erro 
+
