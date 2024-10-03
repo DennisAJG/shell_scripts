@@ -29,3 +29,128 @@ mkdir -P dir2/dir1/dir3 -> cria uma árvore de diretorios
 rm -rf dir1 -> remove toda a árvore do diretorio
 
 sleep 10 -> conta 10 segundos e depois volta a linha de comando.
+
+cat arquivo.txt -> joga a saida do arquivo na tela 
+cat -b arquivo.txt -> enumera as linhas que não estão em branco 
+cat -n arquivo.txt -> enumera todas as linhas brancas e não brancas 
+
+tac arquivo.txt -> lê de baixo para cima 
+
+tail arquivo.txt -> mostra as 10 ultimas linhas do arquivo
+tail -n5 arquivo.txt -> define quantas linhas serão exibidas 
+
+head arquivo.txt -> mostra as 10 primeiras linhas do arquivo 
+head -n4 arquivo.txt -> mostra as linhas solicitadas
+
+wc arquivo.txt -> conta caracteres,bytes ,linhas e palavras de um arquivo 
+tail -n4 alunos2.txt | wc -w -> '|' é usado para pegar a saida de um comando e usando como entrada de outro comando 
+
+sort arquivo.txt -> serve para ordenar um arquivo de A a Z 
+sort -r arquivo.txt -> ordena de Z a A 
+tail /etc/passwd | sort -k3 -t":" -g -> ordena mostrando pelo 3º campo de ordem numericamente
+
+uniq alunos2.txt -> exibe a palavra unica ao momento que estiver repetida
+sort alunos2.txt | uniq 
+uniq -u alunos2.txt -> mostra oque apareceu uma vez só 
+uniq -d alunos2.txt -> mostra as linhas duplicadas 
+uniq -c alunos2.txt -> conta os arquivos duplicados 
+sort alunos2.txt | uniq -c | sort 
+
+cat alunos2.txt | tr a e  -> troca toda letra 'a' por 'e'
+cat alunos2.txt | tr a-z A-Z -> troca toda letra minuscula por maiuscula 
+cat alunos2.txt | tr ' ' '_' -> troca o ' ' por '_'
+cat alunos2.txt | tr  -d aei -> deleta as letras selecionadas 
+echo "CCurso" | tr -s 'C' -> comprime a letra selecionada 
+
+cat alunos2.txt | cut -c1-5 -> recorta pedaços de um caracter de texto 
+cat alunos2.txt | cut -c1,2,3 -> exibe apenas os caracteras 1,2,3
+cat alunos2.txt | cut -d" " -f1 -> mostra por campo 
+tail /etc/passwd | cut -d":" -f1,5 
+
+diff alunos2.txt alunos.txt -> mostra a diferença entre 2 arquivos 
+diff -w alunos2.txt alunos.txt -> ignora os espeços em branco 
+diff -r dir1 dir2 -> usado para comparar diretorios
+
+
+grep Claudia alunos.txt -> mostra o conteudo solitado
+grep Claudia * -> mostra em todos os arquivos 
+grep "Dennis Augusto" alunos.txt -> string completa 
+grep -i RICARDO alunos.txt -> ignora o casesensitive
+grep -c Ana alunos.txt -> vai contar quantas vezes achou retornando apenas a quantidade 
+grep -v Ana alunos.txt -> não mostra a linha onde tem a palavra seleciona 
+grep -r Ana * -> entra em todos os diretorios
+grep -l Ana * -> mostra apenas o arquivo 
+cat alunos.txt | grep Dennis -> pode ser usado dessa forma 
+grep -A3 Carlos alunos.txt -> mostra 3 linhas apos encontrar a palavra 
+
+sed '1,3 d' alunos.txt -> deleta da linha 1 a linha 3 
+sed '/Dennis/d' alunos.txt -> delete toda vez que encontrar a palavra 
+sed 's/Dennis/Paulo/' alunos.txt -> substitui palavras 
+echo "Curso Linux Linux" | sed 's/Linux/Unix/g' -> substitui do forma global 
+
+more alunos.txt -> mostra o conteudo do arquivo de forma paginada 
+less alunos.txt -. mostra o conteudo do arquivo de forma paginada porem com mais opções 
+cat alunos.txt | less -> visualiza o arquivo longo de forma paginada 
+
+Comando find -> usado para procurar por arquivos ou diretorios 
+find ./ -name alunos.txt -> procura pelo nome no diretorio local
+find ./ -name alunos* -> procura tudo com o nome 
+find ./ -name *alunos* -> procura por tudo 
+find ./ -user user -name alunos* -> mostra por user 
+find ./ -name alunos* -exec ls -l {} \; -> faz o processo de execução de comando pela procura 
+
+date -> mostra a hora de data do sistema 
+date +%H -> mostra apenas a hora 
+data +%M -> mostra apenas o minuto
+data +%m -> mostra apenas o mês
+data +%D -> mostra mês,dia,ano 
+data +%d -> mostra apenas o dia 
+data +%d/%m -> mostra dia e mês 
+
+seq 10 -> faz uma sequencia de 1 a 10 
+seq 1 10 -> faz do 1 ao 10 
+seq 4 2 30 -> faz o incremente de 2 em 2 do 4 ao 30 
+
+expr 5 + 2 -> faz a soma de 5 mais 2
+expr 5 - 2 -> faz a subtração 
+expr 5 / 2 -> mostra apenas o decimal 
+expr 5 \* 2 -> faz a multiplicação '\*' precisa proteger 
+echo 3 + 2 | bc -> enterpreta essa string como uma conta 
+
+date ; echo Linux ; ls -> executa de forma sequencia (são independentes)
+ls alunos.txt && echo Linux -> só executa o segundo comando se o primeiro for executa com sucesso 
+ls alunos.txt || echo Linux -> só executa o segundo comando se o primeiro der erro 
+( cd .. ; ls -l ) -> abri um sub-shell para executar o comando 
+
+
+Variaveis no Linux:
+Exemplo: VARIAVEL=VALOR
+env | less -> visualiza as variaveis exportadas 
+set | less -> visualiza as variaveis locais e globas
+echo $VARIAVEL -> referencia a variavel para visualizar 
+VARIAVEL="Curso de Linux e Script" -> proteje os espaços 
+echo $$ -> mostra o pid do bash atual 
+export VARIAVEL -> vai exportar a variavel, sendo visualizado por outros bash filhos 
+
+HORA=`data +%H`-> atribui o comando a uma variavel 
+echo $HORA 
+11 
+MINUTO=$(data +%M) 
+echo $MINUTO
+12
+echo $HORA:$MINUTO
+
+File Globbing x Regex:
+Exemplos file Globbing
+ls Aula* -> qualquer arquivo após 'Aula' 
+ls -l Aula[12345] -> tenta encontrar qualquer um desses 
+ls -l Aula[1-5] -> do 1 ao 5 (apenas um caracter)
+ls -l Aul[Aa][1-3]
+ls -l *[12]
+ls -l {Aula,AULA}[12]
+ls -la Aula1? -> precisa ter um caractar após o 1 
+ls -la aula?? -> exige 2 caracteres 
+
+Exemplos Regex:
+
+
