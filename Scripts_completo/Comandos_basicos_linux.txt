@@ -1,0 +1,31 @@
+Comandos básicos no linux:
+
+cd dir -> acessa um diretorio 
+cd .. -> volta um diretorio
+cd ../../ -> volta 2 níveis de diretorios 
+cd - -> volta pro diretorio aonde estava 
+cd -> vai para o home 
+cd ~ -> vai para o home 
+
+ls -> lista os arquivos ou diretorio
+ls -ltr -> lista de uma forma mais detalhada 
+
+ps -> lista os processos da máquina 
+ps axu -> mostra os processos
+
+touch arquivonovo -> serve para criar um arquivo em branco
+touch arquivoexiste -> atualiza o horario do arquivo existente 
+
+echo linux -> mostra na tela oque você escreveu 
+echo -n linux -> ele não quebra a linha 
+echo -e "Curso shell\t script" -> usado para tabulações 
+echo -e "Curso shell\t\n script" -> usado para tabulações 
+vá no $ man echo 
+
+mkdir dirnovo -> cria um novo diretorio
+mkdir dir/dir1 -> cria um subdir se o primeiro já existir
+mkdir -P dir2/dir1/dir3 -> cria uma árvore de diretorios 
+
+rm -rf dir1 -> remove toda a árvore do diretorio
+
+sleep 10 -> conta 10 segundos e depois volta a linha de comando.
