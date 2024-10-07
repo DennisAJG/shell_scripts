@@ -1,0 +1,16 @@
+exemplo de case:
+
+case $opcao in 
+    1)
+        echo "Lista"
+    ;;
+    2)
+        echo "Add"
+    ;;
+    3)
+        echo "Remover"
+    ;;
+    *)
+        echo "Opcao Inexistente"
+    ;;
+esac

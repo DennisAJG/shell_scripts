@@ -1,0 +1,103 @@
+Instruções utilizadaas para a execução condicional de comandos
+
+Exemplo:
+if <comando-condição>
+then
+    comando1
+    comando2
+    comando3
+fi
+------------------------
+if <comando-condição>
+then
+    comando1
+else
+    comando2
+fi 
+------------------------
+if <comando-condição>
+then
+    comando1
+elif <comando-condição>
+then
+    comando2
+else
+    comando3
+fi
+
+a condição do 'if' no shell é um comando (se o comando for executado com sucesso ou não)
+o comando pra fazer a condição é o 'test'
+test <expressão>
+Lista de expressões:
+Testando valores Numéricos:
+---------------------------------------------
+Opção  | Descrição                          |
+-eq    | Igual (equal)                      |
+-ne    | Diferente (not equal)              |
+-gt    | Maior que (greater than)           |
+-ge    | Maior ou igual que (greater equal) |
+-lt    | Menor que (lower than)             |
+-le    | Menor ou igual que (lower equal)   | 
+---------------------------------------------
+
+Testando Strings:
+---------------------------------------------
+Opção  | Descrição                          |
+=      | Uma string igual a outra           |
+!=     | Uma string diferente da outra      |
+-n     | String não nula                    |
+-z     | String nula                        | 
+---------------------------------------------
+
+Testando Arquivos:
+---------------------------------------------
+Opção  | Descrição                          |
+-f     | É um arquivo                       |
+-d     | É um diretorio                     |
+-r     | Tem permissão de leitura           |
+-w     | Tem permissão de escrita           |
+-x     | Tem permissão de execução          |
+-s     | Possui tamanho maior que zero      | 
+---------------------------------------------
+
+Exemplos do comando test:
+test 50 -gt 100
+test "$VAR1" -eq 12
+test -f /tmp/teste 
+test "$VAR1" = "$VAR2"
+
+Outro forma de usar o comando test:
+[ 50 -gt 100 ]
+[ "$VAR1 -eq 12 ]
+[ -f /tmp/teste ]
+[ "$VAR1" = "$VAR2 ]
+---------------------------
+VAR1=12
+if test "$VAR1" -gt 10
+then 
+    echo sucesso
+fi
+--------------------------
+VAR1=12
+if [ "$VAR1" -gt 10 ]
+then 
+    echo sucesso
+fi
+--------------------------
+VAR1=12
+if [ ! "$VAR1" -gt 10 ] # Negação 
+then 
+    echo sucesso
+fi
+---------------------------------
+VAR1=12
+if [ "$VAR1" -gt 10 -a "$VAR1" -lt 20 ] #AND
+then 
+    echo sucesso
+fi
+----------------------------------
+VAR1=12
+if [ "$VAR1" -gt 10 -o "$VAR1" -lt 20 ] #OR
+then 
+    echo sucesso
+fi
