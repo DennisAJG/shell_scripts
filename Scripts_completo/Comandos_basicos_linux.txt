@@ -151,6 +151,29 @@ ls -l {Aula,AULA}[12]
 ls -la Aula1? -> precisa ter um caractar após o 1 
 ls -la aula?? -> exige 2 caracteres 
 
-Exemplos Regex:
 
+Formas de executar um script:
+$ ./PrimeiroScript.sh
+$ bash PrimeiroScript.sh 
+$ source PrimeiroScript.sh -> executa no bash atual 
+$ . PrimeiroScript.sh -> executa no bash atual 
+
+Incluir o script no PATH:
+$ PATH="$PATH:caminho/do/script"
+$ PrimeiroScript.sh -> executa direto.
+
+Deixa o script sempre o PATH:
+$ vim ~/.profile 
+no arquivo add:
+PATH="$PATH:/caminho/do/script"
+
+Usando o read:
+$ read Curso 
+digito o valor 
+valor 
+
+$ read -p "Informe o seu valor: " VARIAVEL 
+Informe o seu valor: Valor  
+
+$ read -s CODIGO -> usado para omitir o valor na tela 
 
