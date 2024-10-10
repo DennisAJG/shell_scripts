@@ -1,0 +1,29 @@
+Instruções de loop - break
+
+Break - Utilziado para sair do loop 
+Exemplo:
+
+while ls /var/lock/process.lock > /dev/null
+do
+    if [ $(date +%H) -gt 18 ]
+    then 
+        break # o break ai é usado para parar o loop e não o programa
+    fi
+    echo  "Processo em execução"
+    sleep 30
+done 
+
+
+Continue - Utilizado para voltar ao início do loop 
+Exemplo:
+
+while ls /var/lock/process.lock > /dev/null 
+do 
+    if [ $(date +%H) -eq 18 ]
+    then
+        sleep 3600
+        continue #e execução do comando volta caso o if sejá verdadeiro 
+    fi
+    echo "Processo em execução"
+    sleep 30
+done

@@ -1,0 +1,31 @@
+Intruções de Loop - Until
+Só faz uma rotina até que algo sejá verdadeiro.
+
+
+until <comando-condição>
+do
+    comando1
+    comando2
+done
+
+
+x=1
+until [ $x -eq 20 ]
+do
+    echo  "O valor atual é $x"
+    x=$(expr $x +1)
+done
+
+
+until [ $(ps axu | wc -l) -ge 300 ] #até que o comando 'ps axu | wc -l' sejá verdadeiro, o restante do comando é executado. 
+do
+    echo "Tudo ok"
+    sleep 30
+done 
+
+until ls /var/lock/process.lock > /dev/null 
+do 
+    echo "Aguardando Processo..."
+    sleep 30
+done
+

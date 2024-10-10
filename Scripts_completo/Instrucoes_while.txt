@@ -1,0 +1,29 @@
+Instruções do Loop - While 
+Só vai executar uma serie de comandos enquanto algo for verdadeiro. 
+Exemplo:
+while <comando-condição>
+do 
+    comando1
+    comando2
+done 
+
+
+x=1
+while [ $x -le 20 ]
+do 
+    echo "O valor atual é $x"
+    x=$(expr $x + 1)
+done 
+
+
+while [ $(ps axu | wc -l) -lt 300 ]
+do
+    echo "tudo ok"
+    sleep 2
+done 
+
+while ls /var/lock/processo.lock > /dev/null
+do
+    echo "Processo em Execução"
+    sleep 30
+done 
