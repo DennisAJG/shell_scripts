@@ -1,0 +1,32 @@
+Redirecionamento de saída.
+Para uso de logs, o melhor uso é utilizando o Redirecionamento de saída. 
+exemplo:
+$ docker container logs container_id >> container_id.logs 
+
+Usando o comando tee 
+exemplo:
+$ docker container logs container_id | tee -a container_id.logs # a opção '-a' é a mesma do '>>'
+
+
+Gerenciadores de logs:
+1 - Rsyslog (Só pode ser usado com o user root)
+    /etc/rsyslog.d/ -> onde fica as configurações dos arquivos de logs 
+    50-default.confg -> onde tem as principais configurações dos arquivos de logs  
+Dentro do arquivo:
+# Facility = O criado da mensagem 
+             auth, user, syslog 
+# Priority = Urgência/Importancia da mensagem 
+             debug,alert,panic 
+Exemplo:
+kern.*        -/var/logs/kern.log
+
+Para usar o Rsyslog em scripts, pode-se se criar um novo arquivo de configuração dentro do /etc/rsyslog.d/
+Exemplo:
+# nano scripts.confg 
+local0.*       /var/log/scripts.log
+
+Para pegar as configurações, precisa restartar o rsyslog. 
+# systemctl restart rsyslog
+
+comando logger -> pega alguns parametros e joga pro rsyslog
+# logger -p local0.err "Teste de mensagem de erro"

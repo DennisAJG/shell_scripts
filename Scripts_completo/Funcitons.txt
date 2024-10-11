@@ -1,0 +1,41 @@
+Functions
+
+Função: Trecho de código que exerce uma rotina específica dentro do script 
+Principais utilidades:
+1 - Evita a repetição excessiva de código
+2 - Reduz o tamanho final do script
+3 - Facilita a Manutenção 
+
+Características:
+1 - Podem utilizar parâmetros
+2 - Podem utilizar variáveis globais ou locais 
+3 - Devem ser definidas antes de serem chamadas
+4 - Podem ser utilizados códigos de retorno
+
+Sintaxe Definição:
+funciton nome_funcao () {
+    Comandos
+}
+
+nome_funcao() {
+    Comandos
+}
+
+
+Chamando funções:
+nome_funcao
+nome_funcao par1 par2 #parâmetros
+VAR1=$(nome_funcao)
+
+Variáveis:
+1 - Global = Visível por todo o código (padrão)
+2 - Local = Visível apenas na função 
+local VAR1="Shell script"
+
+Return Code:
+1 - Mesmo princípio do Exit Code 
+2 - Definida pela instrução "return"
+3 - Acessada por $?
+return 10 
+echo $?
+
